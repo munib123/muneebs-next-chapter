@@ -1,13 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
+import { HeroSection } from "@/components/portfolio/HeroSection";
+import { AboutSection } from "@/components/portfolio/AboutSection";
+import { EducationSection } from "@/components/portfolio/EducationSection";
+import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
+import { SkillsSection } from "@/components/portfolio/SkillsSection";
+import { ProjectsSection } from "@/components/portfolio/ProjectsSection";
+import { CertificatesSection } from "@/components/portfolio/CertificatesSection";
+import { ContactSection } from "@/components/portfolio/ContactSection";
+import { NavDock } from "@/components/portfolio/NavDock";
+import { profile } from "@/content/profile";
 
 const Index = () => {
+  useEffect(() => {
+    // Structured data (JSON-LD)
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: profile.name,
+      jobTitle: profile.role,
+      url: window.location.origin,
+      sameAs: [profile.github, profile.linkedin],
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify(data);
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <EducationSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <CertificatesSection />
+      <ContactSection />
+      <NavDock />
+    </main>
   );
 };
 
