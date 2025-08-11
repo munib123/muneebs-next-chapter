@@ -19,7 +19,7 @@ export const HeroSection = () => {
             <a href={profile.resumeUrl} target="_blank" rel="noreferrer">View Resume</a>
           </Button>
           <Button asChild variant="soft">
-            <a href="#contact">Contact</a>
+            <a href="/contact">Contact</a>
           </Button>
           <div className="flex items-center gap-2 ml-1">
             <a href={profile.github} aria-label="GitHub" className="rounded-md p-2 bg-secondary hover:bg-secondary/80 transition-colors">

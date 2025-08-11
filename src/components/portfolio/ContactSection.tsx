@@ -10,6 +10,9 @@ export const ContactSection = () => {
         I'm open to collaborations, internships, and freelance opportunities. Connect with me on LinkedIn or explore my work on GitHub.
       </p>
       <div className="flex flex-wrap gap-3 pt-4">
+        <Button asChild variant="default">
+          <a href="/contact"><Mail className="mr-2 size-4"/>Send a message</a>
+        </Button>
         <Button asChild variant="hero">
           <a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin className="mr-2 size-4"/>LinkedIn</a>
         </Button>
